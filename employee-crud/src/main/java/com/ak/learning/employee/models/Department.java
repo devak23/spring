@@ -16,7 +16,7 @@ public class Department {
     @Column(name = "LOC")
     private String location;
 
-    @OneToMany
+    @OneToMany (fetch = FetchType.LAZY)
     private Collection<Employee> employees;
 
     public long getNum() {

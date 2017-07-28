@@ -115,7 +115,6 @@ public class Employee {
                 ", hireDate=" + hireDate +
                 ", salary=" + salary +
                 ", commission=" + commission +
-                ", department=" + department +
                 '}';
     }
 }
