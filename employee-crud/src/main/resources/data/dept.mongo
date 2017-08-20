@@ -1,0 +1,4 @@
+db.dept.insert({deptno: 10, dname: 'ACCOUNTING', loc: 'NEW YORK'});
+db.dept.insert({deptno: 20, dname: 'RESEARCH', loc: 'DALLAS'});
+db.dept.insert({deptno: 30, dname: 'SALES', loc: 'CHICAGO'});
+db.dept.insert({deptno: 40, dname: 'OPERATIONS', loc: 'BOSTON'});
