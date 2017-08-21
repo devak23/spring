@@ -2,3 +2,5 @@
 */**/target/**
 */**/*.iml
 */.mvn/**
+/.metadata/
+/.metadata/

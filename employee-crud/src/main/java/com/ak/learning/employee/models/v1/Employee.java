@@ -1,15 +1,19 @@
-package com.ak.learning.employee.models;
+package com.ak.learning.employee.models.v1;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
 import java.sql.Date;
 
 @Entity
 @Table(name = "EMP")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Employee {
     @Id
     @GeneratedValue
     @Column(name = "EMPNO")
-    private Long num;
+    private Long id;
 
     @Column(name = "ENAME")
     private String name;
@@ -32,14 +36,15 @@ public class Employee {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "DEPTNO")
+    @JsonIgnore
     private Department department;
 
-    public Long getNum() {
-        return num;
+    public Long getId() {
+        return id;
     }
 
-    public Employee setNum(Long num) {
-        this.num = num;
+    public Employee setId(Long id) {
+        this.id = id;
         return this;
     }
 
@@ -109,7 +114,7 @@ public class Employee {
     @Override
     public String toString() {
         return "Employee{" +
-                "num=" + num +
+                "id=" + id +
                 ", name='" + name + '\'' +
                 ", job='" + job + '\'' +
                 ", hireDate=" + hireDate +

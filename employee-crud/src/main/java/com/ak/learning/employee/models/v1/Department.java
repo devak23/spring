@@ -1,14 +1,14 @@
-package com.ak.learning.employee.models;
+package com.ak.learning.employee.models.v1;
 
 import javax.persistence.*;
-import java.util.Collection;
 
 @Entity
 @Table(name = "DEPT")
 public class Department {
     @Id
     @GeneratedValue
-    private long num;
+    @Column(name = "DEPTNO")
+    private long id;
 
     @Column(name = "DNAME")
     private String name;
@@ -16,15 +16,15 @@ public class Department {
     @Column(name = "LOC")
     private String location;
 
-    @OneToMany (fetch = FetchType.LAZY)
-    private Collection<Employee> employees;
+//    @OneToMany (fetch = FetchType.LAZY)
+//    private Collection<Employee> employees;
 
-    public long getNum() {
-        return num;
+    public long getId() {
+        return id;
     }
 
-    public Department setNum(long num) {
-        this.num = num;
+    public Department setId(long id) {
+        this.id = id;
         return this;
     }
 
@@ -46,12 +46,12 @@ public class Department {
         return this;
     }
 
-    public Collection<Employee> getEmployees() {
-        return employees;
-    }
-
-    public Department setEmployees(Collection<Employee> employees) {
-        this.employees = employees;
-        return this;
-    }
+//    public Collection<Employee> getEmployees() {
+//        return employees;
+//    }
+//
+//    public Department setEmployees(Collection<Employee> employees) {
+//        this.employees = employees;
+//        return this;
+//    }
 }
