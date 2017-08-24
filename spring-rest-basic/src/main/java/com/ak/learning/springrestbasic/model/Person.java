@@ -5,11 +5,21 @@ import java.util.Date;
 
 @XmlRootElement
 public class Person {
+    private Long id;
     private String firstName;
     private String lastName;
     private Date dateOfBirth;
     private String email;
     private PersonStatusEnum status;
+
+    public Long getId() {
+        return id;
+    }
+
+    public Person setId(Long id) {
+        this.id = id;
+        return this;
+    }
 
     public String getFirstName() {
         return firstName;

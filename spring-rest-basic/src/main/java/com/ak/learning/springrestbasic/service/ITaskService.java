@@ -8,4 +8,6 @@ public interface ITaskService {
     List<Task> getAllTasks();
 
     Task getTaskById(Long id);
+
+    void initialize();
 }
