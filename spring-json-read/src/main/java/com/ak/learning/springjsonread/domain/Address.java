@@ -5,10 +5,12 @@ import lombok.Data;
 
 import javax.persistence.Embeddable;
 import javax.persistence.Embedded;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Data
 @AllArgsConstructor
 @Embeddable
+@XmlRootElement
 public class Address {
     private String street;
     private String suite;

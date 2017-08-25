@@ -5,10 +5,12 @@ import lombok.Data;
 
 import javax.persistence.Column;
 import javax.persistence.Embeddable;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Data
 @AllArgsConstructor
 @Embeddable
+@XmlRootElement
 public class Company {
 
     @Column(name = "company_name")
