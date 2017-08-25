@@ -28,8 +28,12 @@ public class SpringJsonReadApplication {
 		SpringApplication.run(SpringJsonReadApplication.class, args);
 	}
 
-	// Enable this if you want to load the JSON data from the file into the database
-	// since the db file is present in the /resources/db, I've commented this
+	/**
+	 * Enable this if you want to load the JSON data from the file into the
+	 * database since the db file is present in the /resources/db, I've
+	 * commented this
+	 */
+
 //	@Bean
 //	CommandLineRunner runner(IUserService userService) {
 //		return args -> {

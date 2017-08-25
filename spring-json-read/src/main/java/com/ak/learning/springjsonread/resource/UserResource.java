@@ -1,5 +1,8 @@
 package com.ak.learning.springjsonread.resource;
 
+import com.ak.learning.springjsonread.domain.Address;
+import com.ak.learning.springjsonread.domain.Company;
+import com.ak.learning.springjsonread.domain.Geo;
 import com.ak.learning.springjsonread.domain.User;
 import com.ak.learning.springjsonread.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,4 +29,18 @@ public class UserResource {
         return userService.getUserById(id);
     }
 
+    @RequestMapping("/{id}/address")
+    public Address getUserAddress(@PathVariable("id") long id) {
+        return userService.getUserAddress(id);
+    }
+
+    @RequestMapping("/{id}/address/geo")
+    public Geo getUserGeo(@PathVariable("id") long id) {
+        return userService.getUserGeo(id);
+    }
+
+    @RequestMapping("/{id}/company")
+    public Company getUserCompany(@PathVariable("id") long id) {
+        return userService.getUserCompany(id);
+    }
 }
