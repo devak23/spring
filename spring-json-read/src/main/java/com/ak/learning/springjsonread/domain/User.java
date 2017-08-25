@@ -4,10 +4,12 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 
 import javax.persistence.*;
+import javax.xml.bind.annotation.XmlRootElement;
 
 @Data
 @AllArgsConstructor
 @Entity (name = "USER_DETAILS")
+@XmlRootElement
 public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
