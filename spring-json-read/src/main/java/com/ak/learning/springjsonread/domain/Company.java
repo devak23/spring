@@ -13,6 +13,7 @@ public class Company {
 
     @Column(name = "company_name")
     private String name;
+    @Column(name = "catch_phrase")
     private String catchPhrase;
     private String bs;
 

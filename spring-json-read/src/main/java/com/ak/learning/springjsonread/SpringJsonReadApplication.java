@@ -28,20 +28,22 @@ public class SpringJsonReadApplication {
 		SpringApplication.run(SpringJsonReadApplication.class, args);
 	}
 
-	@Bean
-	CommandLineRunner runner(IUserService userService) {
-		return args -> {
-			// read json and write to db
-			ObjectMapper mapper = new ObjectMapper();
-			TypeReference<List<User>> typeReference = new TypeReference<List<User>>() {};
-			InputStream is = TypeReference.class.getResourceAsStream("/json/users.json");
-			try {
-				List<User> users = mapper.readValue(is, typeReference);
-				userService.saveAllUsers(users);
-				System.out.println("..::: Users saved:::..");
-			} catch (IOException ioe) {
-				System.err.println("Unable to save users: " + ioe.getMessage());
-			}
-		};
-	}
+	// Enable this if you want to load the JSON data from the file into the database
+	// since the db file is present in the /resources/db, I've commented this
+//	@Bean
+//	CommandLineRunner runner(IUserService userService) {
+//		return args -> {
+//			// read json and write to db
+//			ObjectMapper mapper = new ObjectMapper();
+//			TypeReference<List<User>> typeReference = new TypeReference<List<User>>() {};
+//			InputStream is = TypeReference.class.getResourceAsStream("/json/users.json");
+//			try {
+//				List<User> users = mapper.readValue(is, typeReference);
+//				userService.saveAllUsers(users);
+//				System.out.println("..::: Users saved:::..");
+//			} catch (IOException ioe) {
+//				System.err.println("Unable to save users: " + ioe.getMessage());
+//			}
+//		};
+//	}
 }
