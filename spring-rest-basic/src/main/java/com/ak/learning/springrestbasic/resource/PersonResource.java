@@ -16,8 +16,13 @@ import java.util.List;
 @RestController
 @RequestMapping("/rest/persons")
 public class PersonResource {
-    @Autowired
     private IPersonService personService;
+
+    // this is called setter injection
+    @Autowired
+    public void setPersonService(IPersonService personService) {
+        this.personService = personService;
+    }
 
     @GetMapping
     public ResponseEntity<Collection<Person>> getAllPersons() {

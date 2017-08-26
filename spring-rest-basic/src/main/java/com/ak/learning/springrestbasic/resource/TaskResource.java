@@ -14,7 +14,7 @@ import java.util.List;
 @RequestMapping("/rest/tasks")
 public class TaskResource {
     @Autowired
-    private ITaskService taskService;
+    private ITaskService taskService; // this is called property injection
 
     @GetMapping
     public ResponseEntity<Collection<Task>> getAllTasks() {
