@@ -18,6 +18,12 @@ public class HelloResource {
     @Value("${helloResource.helloWorldMessage}")
     private String helloWorldMessage;
 
+    @Value("${helloResource.myApp.name}")
+    private String appName;
+
+    @Value("${helloResource.myApp.desc}")
+    private String appDesc;
+
     @RequestMapping(value = "/{name}", method = RequestMethod.GET)
     public ResponseEntity<String> greet(@PathVariable("name") String name) {
         return new ResponseEntity<>(message + name, HttpStatus.OK);
@@ -26,5 +32,10 @@ public class HelloResource {
     @RequestMapping("/yaml")
     public String greetMe() {
         return helloWorldMessage;
+    }
+
+    @RequestMapping("/app")
+    public String myApp() {
+        return "My app's name is " + appName + ". Did you know " + appDesc;
     }
 }
