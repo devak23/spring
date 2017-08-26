@@ -15,8 +15,16 @@ public class HelloResource {
     @Value("${helloResource.greet.message}")
     private String message;
 
+    @Value("${helloResource.helloWorldMessage}")
+    private String helloWorldMessage;
+
     @RequestMapping(value = "/{name}", method = RequestMethod.GET)
     public ResponseEntity<String> greet(@PathVariable("name") String name) {
         return new ResponseEntity<>(message + name, HttpStatus.OK);
+    }
+
+    @RequestMapping("/yaml")
+    public String greetMe() {
+        return helloWorldMessage;
     }
 }

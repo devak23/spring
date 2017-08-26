@@ -1,0 +1,2 @@
+helloResource:
+  helloWorldMessage: This is from YAML config file. Hello World!
