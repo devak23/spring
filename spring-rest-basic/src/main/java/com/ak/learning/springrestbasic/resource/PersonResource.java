@@ -14,7 +14,7 @@ import java.util.Collection;
 import java.util.List;
 
 @RestController
-@RequestMapping("/rest/persons")
+@RequestMapping("/rest/v1/persons")
 public class PersonResource {
     private IPersonService personService;
 

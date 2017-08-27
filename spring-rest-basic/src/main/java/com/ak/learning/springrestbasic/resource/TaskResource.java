@@ -11,7 +11,7 @@ import java.util.Collection;
 import java.util.List;
 
 @RestController
-@RequestMapping("/rest/tasks")
+@RequestMapping("/rest/v1/tasks")
 public class TaskResource {
     @Autowired
     private ITaskService taskService; // this is called property injection
@@ -25,6 +25,6 @@ public class TaskResource {
     @RequestMapping(value = "/{id}", method = RequestMethod.GET)
     public ResponseEntity<Task> getTaskById(@PathVariable("id") Long id) {
         Task task = taskService.getTaskById(id);
-        return new ResponseEntity<Task>(task, HttpStatus.OK);
+        return new ResponseEntity<>(task, HttpStatus.OK);
     }
 }

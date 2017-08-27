@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/rest/hello")
+@RequestMapping("/rest/v1/hello")
 public class HelloResource {
 
     @Value("${helloResource.greet.message}")
