@@ -1,6 +1,6 @@
 package com.ak.learning.employee.v1.repositories;
 
-import com.ak.learning.employee.models.v1.Employee;
+import com.ak.learning.employee.v1.models.Employee;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
