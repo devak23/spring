@@ -1,4 +1,4 @@
-package com.ak.learning.employee.repositories.v1;
+package com.ak.learning.employee.v1.repositories;
 
 import com.ak.learning.employee.models.v1.Employee;
 import org.springframework.stereotype.Repository;

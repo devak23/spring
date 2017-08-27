@@ -1,14 +1,15 @@
-package com.ak.learning.employee.services.v1;
+package com.ak.learning.employee.v1.services;
 
 
-import com.ak.learning.employee.models.v1.Employee;
-import com.ak.learning.employee.repositories.v1.EmployeeRepository;
-import com.ak.learning.employee.repositories.v1.GenericRepository;
+import com.ak.learning.employee.v1.models.Employee;
+import com.ak.learning.employee.v1.repositories.EmployeeRepository;
+import com.ak.learning.employee.v1.repositories.GenericRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 import java.util.List;
+
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {

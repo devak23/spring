@@ -1,4 +1,4 @@
-package com.ak.learning.employee.models.v1;
+package com.ak.learning.employee.v1.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

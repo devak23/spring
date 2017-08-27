@@ -1,6 +1,7 @@
-package com.ak.learning.employee.services.v1;
+package com.ak.learning.employee.v1.services;
 
-import com.ak.learning.employee.models.v1.Employee;
+
+import com.ak.learning.employee.v1.models.Employee;
 
 import java.util.Collection;
 import java.util.List;

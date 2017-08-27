@@ -1,7 +1,7 @@
-package com.ak.learning.employee.ws.v1;
+package com.ak.learning.employee.v1.resources;
 
-import com.ak.learning.employee.models.v1.Employee;
-import com.ak.learning.employee.services.v1.EmployeeService;
+import com.ak.learning.employee.v1.models.Employee;
+import com.ak.learning.employee.v1.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.List;
+
 
 @RestController
 @RequestMapping("/rest/v1/employees")
