@@ -1,2 +1,9 @@
 helloResource:
   helloWorldMessage: This is from YAML config file. Hello World!
+
+myapp-config:
+  name: Spring rest basic
+  version: 1.0
+  author: Abhay Kulkarni
+  date-of-creation: 01/01/2017
+  email-address: developer.ak23@gmail.com
