@@ -9,7 +9,7 @@ import java.sql.Date;
 @Entity
 @Table(name = "EMP")
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
-public class Employee {
+public class EmployeeDTO {
     @Id
     @GeneratedValue
     @Column(name = "EMPNO")
@@ -23,7 +23,7 @@ public class Employee {
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "MGR")
-    private Employee manager;
+    private EmployeeDTO manager;
 
     @Column(name = "HIREDATE")
     private Date hireDate;
@@ -37,13 +37,13 @@ public class Employee {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "DEPTNO")
     @JsonIgnore
-    private Department department;
+    private DepartmentDTO departmentDTO;
 
     public Long getId() {
         return id;
     }
 
-    public Employee setId(Long id) {
+    public EmployeeDTO setId(Long id) {
         this.id = id;
         return this;
     }
@@ -52,7 +52,7 @@ public class Employee {
         return name;
     }
 
-    public Employee setName(String name) {
+    public EmployeeDTO setName(String name) {
         this.name = name;
         return this;
     }
@@ -61,16 +61,16 @@ public class Employee {
         return job;
     }
 
-    public Employee setJob(String job) {
+    public EmployeeDTO setJob(String job) {
         this.job = job;
         return this;
     }
 
-    public Employee getManager() {
+    public EmployeeDTO getManager() {
         return manager;
     }
 
-    public Employee setManager(Employee manager) {
+    public EmployeeDTO setManager(EmployeeDTO manager) {
         this.manager = manager;
         return this;
     }
@@ -79,7 +79,7 @@ public class Employee {
         return hireDate;
     }
 
-    public Employee setHireDate(Date hireDate) {
+    public EmployeeDTO setHireDate(Date hireDate) {
         this.hireDate = hireDate;
         return this;
     }
@@ -88,7 +88,7 @@ public class Employee {
         return salary;
     }
 
-    public Employee setSalary(double salary) {
+    public EmployeeDTO setSalary(double salary) {
         this.salary = salary;
         return this;
     }
@@ -97,23 +97,23 @@ public class Employee {
         return commission;
     }
 
-    public Employee setCommission(double commission) {
+    public EmployeeDTO setCommission(double commission) {
         this.commission = commission;
         return this;
     }
 
-    public Department getDepartment() {
-        return department;
+    public DepartmentDTO getDepartmentDTO() {
+        return departmentDTO;
     }
 
-    public Employee setDepartment(Department department) {
-        this.department = department;
+    public EmployeeDTO setDepartmentDTO(DepartmentDTO departmentDTO) {
+        this.departmentDTO = departmentDTO;
         return this;
     }
 
     @Override
     public String toString() {
-        return "Employee{" +
+        return "EmployeeDTO{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", job='" + job + '\'' +

@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "DEPT")
-public class Department {
+public class DepartmentDTO {
     @Id
     @GeneratedValue
     @Column(name = "DEPTNO")
@@ -17,13 +17,13 @@ public class Department {
     private String location;
 
 //    @OneToMany (fetch = FetchType.LAZY)
-//    private Collection<Employee> employees;
+//    private Collection<EmployeeDTO> employees;
 
     public long getId() {
         return id;
     }
 
-    public Department setId(long id) {
+    public DepartmentDTO setId(long id) {
         this.id = id;
         return this;
     }
@@ -32,7 +32,7 @@ public class Department {
         return name;
     }
 
-    public Department setName(String name) {
+    public DepartmentDTO setName(String name) {
         this.name = name;
         return this;
     }
@@ -41,16 +41,16 @@ public class Department {
         return location;
     }
 
-    public Department setLocation(String location) {
+    public DepartmentDTO setLocation(String location) {
         this.location = location;
         return this;
     }
 
-//    public Collection<Employee> getEmployees() {
+//    public Collection<EmployeeDTO> getEmployees() {
 //        return employees;
 //    }
 //
-//    public Department setEmployees(Collection<Employee> employees) {
+//    public DepartmentDTO setEmployees(Collection<EmployeeDTO> employees) {
 //        this.employees = employees;
 //        return this;
 //    }

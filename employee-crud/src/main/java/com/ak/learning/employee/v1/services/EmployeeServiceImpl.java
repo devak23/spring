@@ -1,7 +1,7 @@
 package com.ak.learning.employee.v1.services;
 
 
-import com.ak.learning.employee.v1.models.Employee;
+import com.ak.learning.employee.v1.models.dto.EmployeeDTO;
 import com.ak.learning.employee.v1.repositories.EmployeeRepository;
 import com.ak.learning.employee.v1.repositories.GenericRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,17 +20,17 @@ public class EmployeeServiceImpl implements EmployeeService {
     private GenericRepository genericRepository;
 
     @Override
-    public Collection<Employee> findAll() {
+    public Collection<EmployeeDTO> findAll() {
         return genericRepository.findAll();
     }
 
     @Override
-    public Employee findById(long employeeId) {
+    public EmployeeDTO findById(long employeeId) {
         return employeeRepository.findById(employeeId);
     }
 
     @Override
-    public List<Employee> getEmployeesByName(String name) {
+    public List<EmployeeDTO> getEmployeesByName(String name) {
         return employeeRepository.findByName(name);
     }
 

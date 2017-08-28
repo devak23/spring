@@ -1,19 +1,23 @@
-package com.ak.learning.employee.v1.models;
+package com.ak.learning.employee.v1.models.json;
 
 import org.springframework.beans.factory.annotation.Value;
 
 import java.util.Collection;
 
-public abstract class HateoasListModel<T> {
+public class HateoasListModel<T> {
     protected Collection<T> entities;
+    protected String previousURL;
+    protected String nextUrl;
+    protected String first;
+    protected String last;
 
-    protected int currentPageIndex;
+    private int currentPageIndex;
 
     @Value("app.rest.pageSize")
-    protected int pageSize;
+    private Integer pageSize;
 
     @Value("app.rest.url")
-    protected String appURL;
+    private String appURL;
 
     public HateoasListModel(Collection<T> listOfModel) {
         this.entities = listOfModel;
@@ -28,27 +32,34 @@ public abstract class HateoasListModel<T> {
         return this.entities.size();
     }
 
+//
+//    public String getPreviousUrl() {
+//        System.out.println("Prev URL pageSize: " + pageSize);
+//
+//        if (currentPageIndex < pageSize) {
+//            return "";
+//        } else {
+//            return appURL + "page/" + (getCount()/pageSize - currentPageIndex);
+//        }
+//    }
 
-    public String getPreviousUrl() {
-        if (currentPageIndex < pageSize) {
-            return null;
-        } else {
-            return appURL + "page/" + (getCount()/pageSize - currentPageIndex);
-        }
-    }
+//    public String getNextUrl() {
+//        System.out.println("NextURL pageSize: " + pageSize);
+//
+//        if (currentPageIndex == getCount()/pageSize) {
+//            return "";
+//        }
+//        return appURL + "page/" + (currentPageIndex+1);
+//    }
 
-    public String getNextUrl() {
-        if (currentPageIndex == getCount()/pageSize) {
-            return null;
-        }
-        return appURL + "page/" + (currentPageIndex+1);
-    }
     public String first() {
-        return appURL + "page/" + currentPageIndex;
+        this.first = appURL + "page/" + currentPageIndex;
+        return first;
     }
 
     public String last() {
-        return appURL + "page/" + (getCount()/pageSize);
+        this.last = appURL + "page/" + (getCount() / pageSize);
+        return last;
     }
 
 }

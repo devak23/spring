@@ -1,12 +1,12 @@
 package com.ak.learning.employee.v1.repositories;
 
 
-import com.ak.learning.employee.v1.models.Employee;
+import com.ak.learning.employee.v1.models.dto.EmployeeDTO;
 
 import java.util.List;
 
 public interface EmployeeRepository {
-    List<Employee> findByName(String name);
+    List<EmployeeDTO> findByName(String name);
 
-    Employee findById(long id);
+    EmployeeDTO findById(long id);
 }

@@ -1,6 +1,6 @@
 package com.ak.learning.employee.v1.repositories;
 
-import com.ak.learning.employee.v1.models.Employee;
+import com.ak.learning.employee.v1.models.dto.EmployeeDTO;
 import org.springframework.stereotype.Repository;
 
 import javax.persistence.EntityManager;
@@ -19,16 +19,16 @@ public class EmployeeRepositoryImpl implements EmployeeRepository {
     }
 
     @Override
-    public List<Employee> findByName(String value) {
-        return (List<Employee>) entityManager
-                .createQuery("FROM Employee as emp WHERE emp.name = :name")
+    public List<EmployeeDTO> findByName(String value) {
+        return (List<EmployeeDTO>) entityManager
+                .createQuery("FROM EmployeeDTO as emp WHERE emp.name = :name")
                 .setParameter("name", value)
 //                .setMaxResults()
                 .getResultList();
     }
 
     @Override
-    public Employee findById(long id) {
-        return entityManager.find(Employee.class, id);
+    public EmployeeDTO findById(long id) {
+        return entityManager.find(EmployeeDTO.class, id);
     }
 }

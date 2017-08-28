@@ -1,15 +1,15 @@
 package com.ak.learning.employee.v1.services;
 
 
-import com.ak.learning.employee.v1.models.Employee;
+import com.ak.learning.employee.v1.models.dto.EmployeeDTO;
 
 import java.util.Collection;
 import java.util.List;
 
 public interface EmployeeService {
-    Collection<Employee> findAll();
+    Collection<EmployeeDTO> findAll();
 
-    Employee findById(long employeeId);
+    EmployeeDTO findById(long employeeId);
 
-    List<Employee> getEmployeesByName(String name);
+    List<EmployeeDTO> getEmployeesByName(String name);
 }

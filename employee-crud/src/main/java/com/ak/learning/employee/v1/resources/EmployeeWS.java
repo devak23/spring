@@ -1,6 +1,8 @@
 package com.ak.learning.employee.v1.resources;
 
-import com.ak.learning.employee.v1.models.Employee;
+import com.ak.learning.employee.v1.models.dto.EmployeeDTO;
+import com.ak.learning.employee.v1.models.json.Employee;
+import com.ak.learning.employee.v1.models.json.HateoasListModel;
 import com.ak.learning.employee.v1.services.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -18,20 +20,21 @@ public class EmployeeWS {
     private EmployeeService employeeService;
 
     @GetMapping
-    public ResponseEntity<Collection<Employee>> getEmployees() {
-        Collection<Employee> employees = employeeService.findAll();
-        return new ResponseEntity<>(employees, HttpStatus.OK);
+    public ResponseEntity<Employee> getEmployees() {
+        Collection<EmployeeDTO> employees = employeeService.findAll();
+        Employee eJson = new Employee(employees);
+        return new ResponseEntity<>(eJson, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/{id}", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<Employee> getEmployee(@PathVariable("id") long employeeId) {
-        Employee employee = employeeService.findById(employeeId);
+    public ResponseEntity<EmployeeDTO> getEmployee(@PathVariable("id") long employeeId) {
+        EmployeeDTO employee = employeeService.findById(employeeId);
         return new ResponseEntity<>(employee, HttpStatus.OK);
     }
 
     @RequestMapping(value = "/name={name}", method = RequestMethod.GET, produces = "application/json")
-    public ResponseEntity<List<Employee>> getEmployeesByName(@PathVariable("name") String name) {
-        List<Employee> employees = employeeService.getEmployeesByName(name);
+    public ResponseEntity<List<EmployeeDTO>> getEmployeesByName(@PathVariable("name") String name) {
+        List<EmployeeDTO> employees = employeeService.getEmployeesByName(name);
         return new ResponseEntity<>(employees, HttpStatus.OK);
     }
 }
