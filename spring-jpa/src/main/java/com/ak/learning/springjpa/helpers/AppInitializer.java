@@ -1,11 +1,19 @@
 package com.ak.learning.springjpa.helpers;
 
+import com.ak.learning.springjpa.models.Author;
+import com.ak.learning.springjpa.models.Post;
 import com.ak.learning.springjpa.services.IAuthorService;
 import com.ak.learning.springjpa.services.IPostService;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
+
+import java.io.IOException;
+import java.io.InputStream;
+import java.util.List;
 
 @Component
 public class AppInitializer  implements ApplicationListener<ApplicationReadyEvent> {
@@ -25,5 +33,31 @@ public class AppInitializer  implements ApplicationListener<ApplicationReadyEven
 //        .setAuthor(author);
 //
 //    postService.createPost(post);
+    loadAuthors("/data/authors.json");
+    loadPosts("/data/posts.json");
+  }
+
+  private void loadPosts(String jsonFile) {
+    ObjectMapper mapper = new ObjectMapper();
+    TypeReference<List<Post>> typeRef = new TypeReference<List<Post>>() {};
+    InputStream in = TypeReference.class.getClass().getResourceAsStream(jsonFile);
+    try {
+      List<Post> posts = mapper.readValue(in, typeRef);
+      postService.saveAll(posts);
+    } catch (IOException ioe) {
+      ioe.printStackTrace();
+    }
+  }
+
+  private void loadAuthors(String jsonFile) {
+    ObjectMapper mapper = new ObjectMapper();
+    TypeReference<List<Author>> typeRef = new TypeReference<List<Author>>() {};
+    InputStream in = TypeReference.class.getClass().getResourceAsStream(jsonFile);
+    try {
+      List<Author> authors = mapper.readValue(in, typeRef);
+      authorService.saveAll(authors);
+    } catch (IOException ioe) {
+      ioe.printStackTrace();
+    }
   }
 }

@@ -29,4 +29,9 @@ public class PostService implements IPostService {
   public void createPost(Post post) {
     postRepository.save(post);
   }
+
+  @Override
+  public void saveAll(List<Post> posts) {
+    postRepository.save(posts);
+  }
 }

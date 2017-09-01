@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
+import java.util.List;
 
 @Transactional
 @Service
@@ -39,5 +40,15 @@ public class AuthorService implements IAuthorService {
     existing.setFirstName(author.getFirstName());
     existing.setLastName(author.getLastName());
     authorRepository.save(existing);
+  }
+
+  @Override
+  public Author getAuthorById(Long authorId) {
+    return authorRepository.findOne(authorId);
+  }
+
+  @Override
+  public void saveAll(List<Author> authors) {
+    authorRepository.save(authors);
   }
 }
