@@ -11,4 +11,6 @@ public interface IPostService {
   void createPost(Post post);
 
   void saveAll(List<Post> posts);
+
+  Post getPostById(Long postId);
 }

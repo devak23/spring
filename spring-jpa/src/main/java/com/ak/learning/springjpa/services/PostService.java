@@ -1,5 +1,6 @@
 package com.ak.learning.springjpa.services;
 
+import com.ak.learning.springjpa.helpers.AppValidator;
 import com.ak.learning.springjpa.models.Post;
 import com.ak.learning.springjpa.repositories.IPostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +20,6 @@ public class PostService implements IPostService {
     this.postRepository = postRepository;
   }
 
-
   @Override
   public List<Post> getPosts() {
     return (List<Post>) postRepository.findAll();
@@ -33,5 +33,13 @@ public class PostService implements IPostService {
   @Override
   public void saveAll(List<Post> posts) {
     postRepository.save(posts);
+  }
+
+  @Override
+  public Post getPostById(Long postId) {
+    Post post = postRepository.findOne(postId);
+    AppValidator.validateEntityExists(post);
+
+    return post;
   }
 }

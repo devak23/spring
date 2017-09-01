@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
+@RequestMapping("/authors")
 public class AuthorResource {
 
   private IAuthorService authorService;
@@ -18,12 +19,12 @@ public class AuthorResource {
     this.authorService = authorService;
   }
 
-  @RequestMapping(value = "/authors", method = RequestMethod.GET)
+  @RequestMapping(value = "/", method = RequestMethod.GET)
   public Iterable<Author> getAuthors() {
     return authorService.getAuthors();
   }
 
-  @RequestMapping(value = "/authors/{id}")
+  @RequestMapping(value = "/{id}")
   public Author getAuthorById(@PathVariable("id") Long id) {
     return authorService.getAuthorById(id);
   }
