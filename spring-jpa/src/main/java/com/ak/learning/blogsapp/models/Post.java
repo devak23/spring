@@ -1,4 +1,4 @@
-package com.ak.learning.springjpa.models;
+package com.ak.learning.blogsapp.models;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -71,5 +71,23 @@ public class Post {
   public Post setAuthor(Author author) {
     this.author = author;
     return this;
+  }
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    Post post = (Post) o;
+
+    if (id != null ? !id.equals(post.id) : post.id != null) return false;
+    return title.equals(post.title);
+  }
+
+  @Override
+  public int hashCode() {
+    int result = id != null ? id.hashCode() : 0;
+    result = 31 * result + title.hashCode();
+    return result;
   }
 }

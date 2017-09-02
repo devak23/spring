@@ -1,8 +1,8 @@
-package com.ak.learning.springjpa.services;
+package com.ak.learning.blogsapp.services;
 
-import com.ak.learning.springjpa.helpers.AppValidator;
-import com.ak.learning.springjpa.models.Post;
-import com.ak.learning.springjpa.repositories.IPostRepository;
+import com.ak.learning.blogsapp.helpers.AppValidator;
+import com.ak.learning.blogsapp.models.Post;
+import com.ak.learning.blogsapp.repositories.IPostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -38,7 +38,7 @@ public class PostService implements IPostService {
   @Override
   public Post getPostById(Long postId) {
     Post post = postRepository.findOne(postId);
-    AppValidator.validateEntityExists(post);
+    AppValidator.checkEntityExists(post);
 
     return post;
   }

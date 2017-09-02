@@ -1,4 +1,4 @@
-package com.ak.learning.springjpa.exceptions;
+package com.ak.learning.blogsapp.exceptions;
 
 public class EntityNotFoundException extends RuntimeException {
 

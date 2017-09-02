@@ -1,6 +1,6 @@
-package com.ak.learning.springjpa.services;
+package com.ak.learning.blogsapp.services;
 
-import com.ak.learning.springjpa.models.Post;
+import com.ak.learning.blogsapp.models.Post;
 
 import java.util.List;
 

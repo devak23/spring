@@ -1,7 +1,7 @@
-package com.ak.learning.springjpa.resources;
+package com.ak.learning.blogsapp.resources;
 
-import com.ak.learning.springjpa.models.Post;
-import com.ak.learning.springjpa.services.IPostService;
+import com.ak.learning.blogsapp.models.Post;
+import com.ak.learning.blogsapp.services.IPostService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/posts")
+@RequestMapping("/api/v1/posts")
 public class PostResource {
 
   private IPostService postService;

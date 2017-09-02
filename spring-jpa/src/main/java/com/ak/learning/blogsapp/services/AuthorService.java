@@ -1,8 +1,8 @@
-package com.ak.learning.springjpa.services;
+package com.ak.learning.blogsapp.services;
 
-import com.ak.learning.springjpa.helpers.AppValidator;
-import com.ak.learning.springjpa.models.Author;
-import com.ak.learning.springjpa.repositories.IAuthorRepository;
+import com.ak.learning.blogsapp.helpers.AppValidator;
+import com.ak.learning.blogsapp.models.Author;
+import com.ak.learning.blogsapp.repositories.IAuthorRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,6 +27,8 @@ public class AuthorService implements IAuthorService {
 
   @Override
   public void createAuthor(Author author) {
+    List<Author> authors = authorRepository.findByLastnameAndFirstname(author.getFirstName(), author.getLastName());
+    AppValidator.checkEntityExists(authors, author);
     authorRepository.save(author);
   }
 
@@ -39,7 +41,7 @@ public class AuthorService implements IAuthorService {
   public void updateAuthor(Long authorId, Author author) {
     Author existing = authorRepository.findOne(authorId);
 
-    AppValidator.validateEntityExists(existing);
+    AppValidator.checkEntityExists(existing);
 
     existing.setFirstName(author.getFirstName());
     existing.setLastName(author.getLastName());
@@ -49,7 +51,7 @@ public class AuthorService implements IAuthorService {
   @Override
   public Author getAuthorById(Long authorId) {
     Author author = authorRepository.findOne(authorId);
-    AppValidator.validateEntityExists(author);
+    AppValidator.checkEntityExists(author);
 
     return author;
   }

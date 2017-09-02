@@ -1,6 +1,6 @@
-package com.ak.learning.springjpa.repositories;
+package com.ak.learning.blogsapp.repositories;
 
-import com.ak.learning.springjpa.models.Post;
+import com.ak.learning.blogsapp.models.Post;
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
 

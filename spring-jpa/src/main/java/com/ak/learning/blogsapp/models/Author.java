@@ -1,4 +1,4 @@
-package com.ak.learning.springjpa.models;
+package com.ak.learning.blogsapp.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -16,6 +16,7 @@ public class Author {
 
   private String firstName;
   private String lastName;
+  private String email;
 
   @OneToMany(mappedBy = "author")
   @JsonIgnore
@@ -62,5 +63,37 @@ public class Author {
   public Author setPosts(List<Post> posts) {
     this.posts = posts;
     return this;
+  }
+
+  public String getEmail() {
+    return email;
+  }
+
+  public Author setEmail(String email) {
+    this.email = email;
+    return this;
+  }
+
+
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+
+    Author author = (Author) o;
+
+    if (id != null ? !id.equals(author.id) : author.id != null) return false;
+    if (!firstName.equals(author.firstName)) return false;
+    if (!lastName.equals(author.lastName)) return false;
+    return email != null ? email.equals(author.email) : author.email == null;
+  }
+
+  @Override
+  public int hashCode() {
+    int result = id != null ? id.hashCode() : 0;
+    result = 31 * result + firstName.hashCode();
+    result = 31 * result + lastName.hashCode();
+    result = 31 * result + (email != null ? email.hashCode() : 0);
+    return result;
   }
 }

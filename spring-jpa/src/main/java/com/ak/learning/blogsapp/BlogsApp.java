@@ -1,4 +1,4 @@
-package com.ak.learning.springjpa;
+package com.ak.learning.blogsapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

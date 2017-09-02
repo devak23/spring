@@ -1,4 +1,4 @@
-package com.ak.learning.springjpa;
+package com.ak.learning.blogsapp;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

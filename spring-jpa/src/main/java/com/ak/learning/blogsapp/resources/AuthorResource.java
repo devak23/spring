@@ -1,15 +1,13 @@
-package com.ak.learning.springjpa.resources;
+package com.ak.learning.blogsapp.resources;
 
-import com.ak.learning.springjpa.models.Author;
-import com.ak.learning.springjpa.services.IAuthorService;
+import com.ak.learning.blogsapp.models.Author;
+import com.ak.learning.blogsapp.services.IAuthorService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/authors")
+@RequestMapping("/api/v1/authors")
 public class AuthorResource {
 
   private IAuthorService authorService;
@@ -27,5 +25,11 @@ public class AuthorResource {
   @RequestMapping(value = "/{id}")
   public Author getAuthorById(@PathVariable("id") Long id) {
     return authorService.getAuthorById(id);
+  }
+
+  @RequestMapping(value = "/", method = RequestMethod.POST)
+  @ResponseStatus(HttpStatus.CREATED)
+  public void createAuthor(@RequestBody final Author author) {
+    authorService.createAuthor(author);
   }
 }

@@ -1,9 +1,9 @@
-package com.ak.learning.springjpa.helpers;
+package com.ak.learning.blogsapp.helpers;
 
-import com.ak.learning.springjpa.models.Author;
-import com.ak.learning.springjpa.models.Post;
-import com.ak.learning.springjpa.services.IAuthorService;
-import com.ak.learning.springjpa.services.IPostService;
+import com.ak.learning.blogsapp.models.Author;
+import com.ak.learning.blogsapp.models.Post;
+import com.ak.learning.blogsapp.services.IAuthorService;
+import com.ak.learning.blogsapp.services.IPostService;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
