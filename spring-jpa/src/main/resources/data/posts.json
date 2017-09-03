@@ -6,8 +6,8 @@
     "postedOn": 1504204200000,
     "author": {
       "id": 1,
-      "firstName": "Soham",
-      "lastName": "Kulkarni"
+      "firstname": "Soham",
+      "lastname": "Kulkarni"
     }
   },
   {
@@ -17,8 +17,8 @@
     "postedOn": 1504204200000,
     "author": {
       "id": 1,
-      "firstName": "Soham",
-      "lastName": "Kulkarni"
+      "firstname": "Soham",
+      "lastname": "Kulkarni"
     }
   },
   {
@@ -28,8 +28,8 @@
     "postedOn": 1504204200000,
     "author": {
       "id": 3,
-      "firstName": "Manik",
-      "lastName": "Kulkarni"
+      "firstname": "Manik",
+      "lastname": "Kulkarni"
     }
   },
   {
@@ -39,8 +39,8 @@
     "postedOn": 1504204200000,
     "author": {
       "id": 3,
-      "firstName": "Manik",
-      "lastName": "Kulkarni"
+      "firstname": "Manik",
+      "lastname": "Kulkarni"
     }
   },
   {
@@ -50,8 +50,8 @@
     "postedOn": 1504204200000,
     "author": {
       "id": 3,
-      "firstName": "Manik",
-      "lastName": "Kulkarni"
+      "firstname": "Manik",
+      "lastname": "Kulkarni"
     }
   },
   {
@@ -61,8 +61,8 @@
     "postedOn": 1504204200000,
     "author": {
       "id": 3,
-      "firstName": "Manik",
-      "lastName": "Kulkarni"
+      "firstname": "Manik",
+      "lastname": "Kulkarni"
     }
   },
   {
@@ -72,8 +72,8 @@
     "postedOn": 1504204200000,
     "author": {
       "id": 2,
-      "firstName": "Abhay",
-      "lastName": "Kulkarni"
+      "firstname": "Abhay",
+      "lastname": "Kulkarni"
     }
   },
   {
@@ -83,8 +83,8 @@
     "postedOn": 1504204200000,
     "author": {
       "id": 2,
-      "firstName": "Abhay",
-      "lastName": "Kulkarni"
+      "firstname": "Abhay",
+      "lastname": "Kulkarni"
     }
   },
   {
@@ -94,8 +94,8 @@
     "postedOn": 1504204200000,
     "author": {
       "id": 3,
-      "firstName": "Manik",
-      "lastName": "Kulkarni"
+      "firstname": "Manik",
+      "lastname": "Kulkarni"
     }
   },
   {
@@ -105,8 +105,8 @@
     "postedOn": 1504204200000,
     "author": {
       "id": 3,
-      "firstName": "Manik",
-      "lastName": "Kulkarni"
+      "firstname": "Manik",
+      "lastname": "Kulkarni"
     }
   }
 ]

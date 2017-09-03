@@ -17,7 +17,7 @@ public class AuthorResource {
     this.authorService = authorService;
   }
 
-  @RequestMapping(value = "/", method = RequestMethod.GET)
+  @RequestMapping(value = "", method = RequestMethod.GET)
   public Iterable<Author> getAuthors() {
     return authorService.getAuthors();
   }

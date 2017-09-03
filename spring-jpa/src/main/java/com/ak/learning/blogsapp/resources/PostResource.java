@@ -3,10 +3,7 @@ package com.ak.learning.blogsapp.resources;
 import com.ak.learning.blogsapp.models.Post;
 import com.ak.learning.blogsapp.services.IPostService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/api/v1/posts")
@@ -19,7 +16,7 @@ public class PostResource {
     this.postService = postService;
   }
 
-  @RequestMapping( value = "/", method = RequestMethod.GET)
+  @GetMapping
   public Iterable<Post> getPosts() {
     return postService.getPosts();
   }

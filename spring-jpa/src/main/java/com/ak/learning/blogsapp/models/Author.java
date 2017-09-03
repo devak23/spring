@@ -14,8 +14,8 @@ public class Author {
   @GeneratedValue
   private Long id;
 
-  private String firstName;
-  private String lastName;
+  private String firstname;
+  private String lastname;
   private String email;
 
   @OneToMany(mappedBy = "author")
@@ -24,9 +24,9 @@ public class Author {
 
   private Author() {}
 
-  public Author(String firstName, String lastName) {
-    this.firstName = firstName;
-    this.lastName = lastName;
+  public Author(String firstname, String lastname) {
+    this.firstname = firstname;
+    this.lastname = lastname;
   }
 
   public Long getId() {
@@ -38,21 +38,21 @@ public class Author {
     return this;
   }
 
-  public String getFirstName() {
-    return firstName;
+  public String getFirstname() {
+    return firstname;
   }
 
-  public Author setFirstName(String firstName) {
-    this.firstName = firstName;
+  public Author setFirstname(String firstname) {
+    this.firstname = firstname;
     return this;
   }
 
-  public String getLastName() {
-    return lastName;
+  public String getLastname() {
+    return lastname;
   }
 
-  public Author setLastName(String lastName) {
-    this.lastName = lastName;
+  public Author setLastname(String lastname) {
+    this.lastname = lastname;
     return this;
   }
 
@@ -83,16 +83,16 @@ public class Author {
     Author author = (Author) o;
 
     if (id != null ? !id.equals(author.id) : author.id != null) return false;
-    if (!firstName.equals(author.firstName)) return false;
-    if (!lastName.equals(author.lastName)) return false;
+    if (!firstname.equals(author.firstname)) return false;
+    if (!lastname.equals(author.lastname)) return false;
     return email != null ? email.equals(author.email) : author.email == null;
   }
 
   @Override
   public int hashCode() {
     int result = id != null ? id.hashCode() : 0;
-    result = 31 * result + firstName.hashCode();
-    result = 31 * result + lastName.hashCode();
+    result = 31 * result + firstname.hashCode();
+    result = 31 * result + lastname.hashCode();
     result = 31 * result + (email != null ? email.hashCode() : 0);
     return result;
   }

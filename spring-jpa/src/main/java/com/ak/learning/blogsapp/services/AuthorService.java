@@ -27,7 +27,7 @@ public class AuthorService implements IAuthorService {
 
   @Override
   public void createAuthor(Author author) {
-    List<Author> authors = authorRepository.findByLastnameAndFirstname(author.getFirstName(), author.getLastName());
+    List<Author> authors = authorRepository.findByLastnameAndFirstname(author.getFirstname(), author.getLastname());
     AppValidator.checkEntityExists(authors, author);
     authorRepository.save(author);
   }
@@ -43,8 +43,8 @@ public class AuthorService implements IAuthorService {
 
     AppValidator.checkEntityExists(existing);
 
-    existing.setFirstName(author.getFirstName());
-    existing.setLastName(author.getLastName());
+    existing.setFirstname(author.getFirstname());
+    existing.setLastname(author.getLastname());
     authorRepository.save(existing);
   }
 
