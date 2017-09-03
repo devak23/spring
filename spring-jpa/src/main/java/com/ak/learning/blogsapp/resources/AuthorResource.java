@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/api/v1/authors")
+@RequestMapping("/blogsapp/api/v1/authors")
 public class AuthorResource {
 
   private IAuthorService authorService;
@@ -36,7 +36,7 @@ public class AuthorResource {
 
   @RequestMapping(value = "/author/email={emailId}")
   public Author getAuthorByEmailAddress(@PathVariable("emailId") String emailId) {
-    return authorService.getAuthorByEmailAddress(emailId);
+    return authorService.getAuthorByEmail(emailId);
   }
 
   @RequestMapping(value = "/", method = RequestMethod.POST)

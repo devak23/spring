@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
@@ -15,7 +14,6 @@ import java.util.Optional;
 
 @Configuration
 @EnableWebMvc
-@EnableJpaRepositories("com.ak.learning.blogsapp.repositories")
 @ComponentScan("com.ak.learning.blogsapp")
 public class BAConfig extends WebMvcConfigurerAdapter {
 

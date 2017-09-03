@@ -72,8 +72,8 @@ public class AuthorService implements IAuthorService {
   }
 
   @Override
-  public Author getAuthorByEmailAddress(String emailId) {
-    Author author = authorRepository.findByEmailAddress(emailId);
+  public Author getAuthorByEmail(String emailId) {
+    Author author = authorRepository.findByEmail(emailId);
     AppValidator.checkEntityExists(author,"Author with the email Id " + emailId + " does not exist in the database");
     return author;
   }

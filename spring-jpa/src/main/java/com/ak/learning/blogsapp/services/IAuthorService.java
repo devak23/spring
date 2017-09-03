@@ -20,5 +20,5 @@ public interface IAuthorService {
 
   List<Author> getAuthorByName(String name);
 
-  Author getAuthorByEmailAddress(String emailId);
+  Author getAuthorByEmail(String emailId);
 }

@@ -3,30 +3,30 @@
     "id": 1,
     "firstname": "Soham",
     "lastname": "Kulkarni",
-    "emailAddress": null
+    "email": null
   },
   {
     "id": 2,
     "firstname": "Abhay",
     "lastname": "Kulkarni",
-    "emailAddress": "developer.ak23@gmail.com"
+    "email": "developer.ak23@gmail.com"
   },
   {
     "id": 3,
     "firstname": "Manik",
     "lastname": "Kulkarni",
-    "emailAddress": "manik.kulkarni@deloitte.com"
+    "email": "manik.kulkarni@deloitte.com"
   },
   {
     "id": 4,
     "firstname": "Abhay",
     "lastname": "Kulkarni",
-    "emailAddress": "abhay.kulkarni@gmail.com"
+    "email": "abhay.kulkarni@gmail.com"
   },
   {
     "id": 5,
     "firstname": "Soham",
     "lastname": "Nadkarni",
-    "emailAddress": "sohamn@yahoo.com"
+    "email": "sohamn@yahoo.com"
   }
 ]
