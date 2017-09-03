@@ -17,4 +17,8 @@ public interface IAuthorService {
   Author getAuthorById(Long authorId);
 
   void saveAll(List<Author> authors);
+
+  List<Author> getAuthorByName(String name);
+
+  Author getAuthorByEmailAddress(String emailId);
 }

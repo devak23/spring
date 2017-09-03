@@ -22,6 +22,7 @@ public class AuthorService implements IAuthorService {
 
   @Override
   public Iterable<Author> getAuthors() {
+    // TODO: Error handling
     return authorRepository.findAll();
   }
 
@@ -34,6 +35,8 @@ public class AuthorService implements IAuthorService {
 
   @Override
   public void deleteAuthor(Long authorId) {
+    Author author = authorRepository.findOne(authorId);
+    AppValidator.checkEntityExists(author, "The author with id = " + authorId + " does not exist!" + "Cannot delete the record");
     authorRepository.delete(authorId);
   }
 
@@ -41,7 +44,7 @@ public class AuthorService implements IAuthorService {
   public void updateAuthor(Long authorId, Author author) {
     Author existing = authorRepository.findOne(authorId);
 
-    AppValidator.checkEntityExists(existing);
+    AppValidator.checkEntityExists(existing, "The author with id = " + authorId + " does not exist!" + "Cannot perform the update");
 
     existing.setFirstname(author.getFirstname());
     existing.setLastname(author.getLastname());
@@ -51,7 +54,7 @@ public class AuthorService implements IAuthorService {
   @Override
   public Author getAuthorById(Long authorId) {
     Author author = authorRepository.findOne(authorId);
-    AppValidator.checkEntityExists(author);
+    AppValidator.checkEntityExists(author, "The author with id = " + authorId + " does not exist!");
 
     return author;
   }
@@ -59,5 +62,19 @@ public class AuthorService implements IAuthorService {
   @Override
   public void saveAll(List<Author> authors) {
     authorRepository.save(authors);
+  }
+
+  @Override
+  public List<Author> getAuthorByName(String name) {
+    List<Author> authors = authorRepository.findByLastnameOrFirstname(name, name);
+    //TODO: Error handling
+    return authors;
+  }
+
+  @Override
+  public Author getAuthorByEmailAddress(String emailId) {
+    Author author = authorRepository.findByEmailAddress(emailId);
+    AppValidator.checkEntityExists(author,"Author with the email Id " + emailId + " does not exist in the database");
+    return author;
   }
 }

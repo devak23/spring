@@ -10,9 +10,7 @@ public final class AppValidator {
   private AppValidator() { throw new AssertionError();}
 
   public static <T> void checkEntityExists(T entity) throws RuntimeException {
-    if (entity == null) {
-      throw new EntityNotFoundException("The entity you're looking for does not exist in the database");
-    }
+    checkEntityExists(entity, "The entity you're looking for does not exist in the database");
   }
 
   public static boolean checkEntityExists(Long sourceId, Long targetId) {
@@ -29,6 +27,12 @@ public final class AppValidator {
           throw new DuplicateEntityException("Another entity with the same configuration exists in the database");
         }
       }
+    }
+  }
+
+  public static <T> void checkEntityExists(T entity, String message) {
+    if (entity == null) {
+      throw new EntityNotFoundException(message);
     }
   }
 }
