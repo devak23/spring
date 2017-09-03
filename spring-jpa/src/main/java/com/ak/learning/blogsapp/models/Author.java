@@ -13,8 +13,9 @@ public class Author {
 
   private String firstname;
   private String lastname;
-  @Column(unique = true)
+  @Column(unique = true, length = 50)
   private String email;
+  private String friend;
 
   @OneToMany(mappedBy = "author")
   @JsonIgnore
@@ -72,6 +73,14 @@ public class Author {
     return this;
   }
 
+  public String getFriend() {
+    return friend;
+  }
+
+  public Author setFriend(String friend) {
+    this.friend = friend;
+    return this;
+  }
 
   @Override
   public boolean equals(Object o) {

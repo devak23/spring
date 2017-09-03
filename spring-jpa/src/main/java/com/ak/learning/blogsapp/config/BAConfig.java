@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.http.converter.json.AbstractJackson2HttpMessageConverter;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
 import java.util.List;
@@ -30,5 +31,16 @@ public class BAConfig extends WebMvcConfigurerAdapter {
     } else {
       super.extendMessageConverters(converters);
     }
+  }
+
+  /**
+   * By default spring treats anything after a dot (in the URL) as an extension.
+   * This method tells Spring to take the full path to include anything after
+   * the dot as well. We need this to enable findByEmail use case
+   * @param configurer
+   */
+  @Override
+  public void configurePathMatch(PathMatchConfigurer configurer) {
+    configurer.setUseSuffixPatternMatch(false);
   }
 }
