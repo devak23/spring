@@ -25,4 +25,6 @@ public class PostResource {
   public Post getPostById(@PathVariable("id") long id) {
     return postService.getPostById(id);
   }
+
+
 }

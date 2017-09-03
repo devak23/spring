@@ -38,7 +38,7 @@ public class PostService implements IPostService {
   @Override
   public Post getPostById(Long postId) {
     Post post = postRepository.findOne(postId);
-    AppValidator.checkEntityExists(post);
+    AppValidator.checkEntityExists(post, "The post with id = " + postId + " does not exist!");
 
     return post;
   }

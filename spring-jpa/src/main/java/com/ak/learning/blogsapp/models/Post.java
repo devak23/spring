@@ -1,5 +1,8 @@
 package com.ak.learning.blogsapp.models;
 
+import com.ak.learning.blogsapp.helpers.ISO8601FormatDateSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+
 import javax.persistence.*;
 import java.util.Date;
 
@@ -15,6 +18,7 @@ public class Post {
   private String teaser;
 
   @Column(columnDefinition = "TIMESTAMP")
+  @JsonSerialize(using=ISO8601FormatDateSerializer.class)
   private Date postedOn;
 
   @ManyToOne (fetch = FetchType.EAGER)
