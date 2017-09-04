@@ -9,9 +9,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/blogsapp/api/v1/authors")
+@RequestMapping(AuthorResource.AUTHORS_BASE_URI)
 public class AuthorResource {
 
+  public static final String AUTHORS_BASE_URI = "/blogsapp/api/v1/authors";
   private IAuthorService authorService;
 
   @Autowired

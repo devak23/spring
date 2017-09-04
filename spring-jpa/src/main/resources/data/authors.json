@@ -3,30 +3,35 @@
     "id": 1,
     "firstname": "Dick",
     "lastname": "Fuld",
-    "email": "dick.fuld@lemmanbrothers.com"
+    "email": "dick.fuld@lemmanbrothers.com",
+    "deleted": 0
   },
   {
     "id": 2,
     "firstname": "Abhay",
     "lastname": "Kulkarni",
-    "email": "developer.ak23@gmail.com"
+    "email": "developer.ak23@gmail.com",
+    "deleted": 0
   },
   {
     "id": 3,
     "firstname": "Bruce",
     "lastname": "Bets",
-    "email": "b.bets@yahoo.com"
+    "email": "b.bets@yahoo.com",
+    "deleted": 0
   },
   {
     "id": 4,
     "firstname": "Abhay",
     "lastname": "Kulkarni",
-    "email": "abhay.kulkarni@gmail.com"
+    "email": "abhay.kulkarni@gmail.com",
+    "deleted": 0
   },
   {
     "id": 5,
     "firstname": "Vijay",
     "lastname": "Nadkarni",
-    "email": "vnadkarni@yahoo.com"
+    "email": "vnadkarni@yahoo.com",
+    "deleted": 0
   }
 ]

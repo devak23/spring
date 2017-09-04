@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/blogsapp/api/v1/posts")
+@RequestMapping(PostResource.POSTS_BASE_URI)
 public class PostResource {
-
+  public static final String POSTS_BASE_URI = "/blogsapp/api/v1/posts";
   private IPostService postService;
 
   @Autowired

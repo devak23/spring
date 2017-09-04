@@ -24,6 +24,8 @@ public class Post {
   @ManyToOne (fetch = FetchType.EAGER)
   private Author author;
 
+  @Column(length = 1)
+  private int deleted;
 
   // private constructor needed by JPA
   private Post() {}
