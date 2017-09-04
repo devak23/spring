@@ -22,7 +22,7 @@ public class PostService implements IPostService {
 
   @Override
   public List<Post> getPosts() {
-    return (List<Post>) postRepository.findAll();
+    return postRepository.findAllByOrderByPostedOnAsc();
   }
 
   @Override
@@ -41,5 +41,10 @@ public class PostService implements IPostService {
     AppValidator.checkEntityExists(post, "The post with id = " + postId + " does not exist!");
 
     return post;
+  }
+
+  @Override
+  public Post getLatestPost() {
+    return postRepository.findFirstByOrderByPostedOnDesc();
   }
 }

@@ -13,4 +13,6 @@ public interface IPostService {
   void saveAll(List<Post> posts);
 
   Post getPostById(Long postId);
+
+  Post getLatestPost();
 }

@@ -26,5 +26,8 @@ public class PostResource {
     return postService.getPostById(id);
   }
 
-
+  @RequestMapping(value = "/latest")
+  public Post getLatestPost() {
+    return postService.getLatestPost();
+  }
 }
