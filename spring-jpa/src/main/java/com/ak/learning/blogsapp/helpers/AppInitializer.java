@@ -9,6 +9,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationListener;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
@@ -16,6 +17,7 @@ import java.io.InputStream;
 import java.util.List;
 
 @Component
+@Profile("dev")
 public class AppInitializer  implements ApplicationListener<ApplicationReadyEvent> {
   @Autowired
   private IPostService postService;
