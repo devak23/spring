@@ -15,6 +15,8 @@ public class Author {
   private String lastname;
   @Column(unique = true, length = 50)
   private String email;
+  @Column(length = 1)
+  private int deleted;
 
   @OneToMany(mappedBy = "author")
   @JsonIgnore
@@ -72,6 +74,15 @@ public class Author {
     return this;
   }
 
+
+  public int getDeleted() {
+    return deleted;
+  }
+
+  public Author setDeleted(int deleted) {
+    this.deleted = deleted;
+    return this;
+  }
 
   @Override
   public boolean equals(Object o) {

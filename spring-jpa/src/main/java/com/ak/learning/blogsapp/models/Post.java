@@ -79,6 +79,15 @@ public class Post {
     return this;
   }
 
+  public int getDeleted() {
+    return deleted;
+  }
+
+  public Post setDeleted(int deleted) {
+    this.deleted = deleted;
+    return this;
+  }
+
   @Override
   public boolean equals(Object o) {
     if (this == o) return true;
