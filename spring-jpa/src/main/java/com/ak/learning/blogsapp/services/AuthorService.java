@@ -29,8 +29,10 @@ public class AuthorService implements IAuthorService {
 
   @Override
   public void createAuthor(Author author) {
-    List<Author> authors = authorRepository.findByLastnameOrFirstname(author.getFirstname(), author.getLastname());
-    AppValidator.checkEntityExists(authors, author);
+    System.out.println("Lastname, FirstName ==> " + author.getFirstname() + " " + author.getLastname());
+    List<Author> authors = authorRepository.findByLastnameOrFirstname(author.getLastname(), author.getFirstname());
+    System.out.println("authors ==> " + authors);
+    AppValidator.checkEntityExists(authors, author, "Another entry of an author by the name (" + author.getFirstname() + ", " + author.getLastname() + " exists in the database");
     authorRepository.save(author);
   }
 
@@ -62,20 +64,21 @@ public class AuthorService implements IAuthorService {
 
   @Override
   public void saveAll(List<Author> authors) {
+    AppValidator.checkCollectionExists(authors, "Please pass a valid (non-empty) collection of Authors to be persisted");
     authorRepository.save(authors);
   }
 
   @Override
   public List<Author> getAuthorByName(String name) {
     List<Author> authors = authorRepository.findByLastnameOrFirstname(name, name);
-    //TODO: Error handling
+    AppValidator.checkCollectionExists(authors, "The author with name " + name + " was not found in the database");
     return authors;
   }
 
   @Override
   public Author getAuthorByEmail(String emailId) {
     Author author = authorRepository.findByEmail(emailId);
-    AppValidator.checkEntityExists(author,"Author with the email Id " + emailId + " does not exist in the database");
+    AppValidator.checkEntityExists(author, "Author with the email Id " + emailId + " does not exist in the database");
     return author;
   }
 }

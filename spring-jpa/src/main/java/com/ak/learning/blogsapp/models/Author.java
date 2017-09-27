@@ -3,6 +3,8 @@ package com.ak.learning.blogsapp.models;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import javax.persistence.*;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
 import java.util.List;
 
 @Entity
@@ -11,10 +13,18 @@ public class Author {
   @GeneratedValue
   private Long id;
 
+  @NotNull
+  @Size(min = 1, max = 50)
   private String firstname;
+
+  @NotNull
+  @Size(min = 1, max = 50)
   private String lastname;
-  @Column(unique = true, length = 50)
+
+  @Size(min = 5, max = 50)
+  @Column(unique = true, nullable = false)
   private String email;
+
   @Column(length = 1)
   private int deleted;
 

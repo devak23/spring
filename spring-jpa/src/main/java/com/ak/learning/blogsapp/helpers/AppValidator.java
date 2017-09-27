@@ -15,16 +15,20 @@ public final class AppValidator {
 
   public static boolean checkEntityExists(Long sourceId, Long targetId) {
     if (!sourceId.equals(targetId)) {
-      throw new UnequalEntityException("The primary key of the two entities dont match");
+      throw new UnequalEntityException("The primary key of the two entities don't match");
     }
     return true;
   }
 
   public static  <T> void checkEntityExists(List<T> entities, T type) {
+    checkEntityExists(entities, type, "Another entity with the same structure/configuration exists in the database");
+  }
+
+  public static  <T> void checkEntityExists(List<T> entities, T type, String message) {
     if (entities != null && !entities.isEmpty()) {
       for(T e : entities) {
         if (e.equals(type)) {
-          throw new DuplicateEntityException("Another entity with the same configuration exists in the database");
+          throw new DuplicateEntityException(message);
         }
       }
     }

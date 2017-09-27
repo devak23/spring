@@ -16,7 +16,7 @@ import java.util.Optional;
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.ak.learning.blogsapp")
-public class BAConfig extends WebMvcConfigurerAdapter {
+public class BlogsAppConfig extends WebMvcConfigurerAdapter {
 
   @Override
   public void extendMessageConverters(List<HttpMessageConverter<?>> converters) {
