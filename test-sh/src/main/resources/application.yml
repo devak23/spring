@@ -1,0 +1,14 @@
+
+helloResource.author:
+  name: Manik Kulkarni
+  age: 38
+  dob: 01/01/1975
+  address: Powai, Mumbai
+  sex: Female
+  sibling: elder brother
+  sibling-name: Pralhad Dandekar
+  spouseName: Abhay Kulkarni
+
+spring:
+  profiles:
+    active: development

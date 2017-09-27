@@ -11,6 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.test.web.servlet.MockMvc;
+import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.web.context.WebApplicationContext;
 
@@ -35,7 +36,7 @@ public class HelloResourceTests {
   }
 
   @Test
-  public void testGreetMessageReturnsValidHttpResponse() throws Exception {
+  public void testGreetMessageWithNoParamsReturnsValidHttpResponse() throws Exception {
     String url = baseUrl();
 
     mockMvc.perform(get(url))
@@ -53,6 +54,18 @@ public class HelloResourceTests {
         .andExpect(status().isOk())
         .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
         .andExpect(content().string("Hello Abhay"))
+        .andDo(print())
+        .andReturn();
+  }
+
+  @Test
+  public void testGetUsersReturnsAValidHttpResponse() throws Exception {
+    String url = baseUrl() + "/users";
+    String expectedOutput = "[{\"id\":null,\"firstname\":\"Soham\",\"lastname\":\"Kulkarni\",\"emailId\":null},{\"id\":null,\"firstname\":\"Manik\",\"lastname\":\"Kulkarni\",\"emailId\":null},{\"id\":null,\"firstname\":\"Abhay\",\"lastname\":\"Kulkarni\",\"emailId\":null}]";
+    mockMvc.perform(get(url))
+        .andExpect(status().isOk())
+        .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8))
+        .andExpect(content().string(expectedOutput))
         .andDo(print())
         .andReturn();
   }
