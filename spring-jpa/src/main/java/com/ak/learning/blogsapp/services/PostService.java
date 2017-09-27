@@ -22,7 +22,9 @@ public class PostService implements IPostService {
 
   @Override
   public List<Post> getPosts() {
-    return postRepository.findAllByOrderByPostedOnAsc();
+    List<Post> allPosts = postRepository.findAllByOrderByPostedOnAsc();
+    AppValidator.checkCollectionExists(allPosts, "No posts were found in the database");
+    return allPosts;
   }
 
   @Override

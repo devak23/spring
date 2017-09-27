@@ -22,13 +22,14 @@ public class AuthorService implements IAuthorService {
 
   @Override
   public Iterable<Author> getAuthors() {
-    // TODO: Error handling
-    return authorRepository.findAll();
+    Iterable<Author> authors = authorRepository.findAll();
+    AppValidator.checkCollectionExists(authors, "No authors were found in the database");
+    return authors;
   }
 
   @Override
   public void createAuthor(Author author) {
-    List<Author> authors = authorRepository.findByLastnameAndFirstname(author.getFirstname(), author.getLastname());
+    List<Author> authors = authorRepository.findByLastnameOrFirstname(author.getFirstname(), author.getLastname());
     AppValidator.checkEntityExists(authors, author);
     authorRepository.save(author);
   }

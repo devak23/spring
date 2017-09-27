@@ -13,17 +13,16 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 public class ResponseHandler extends ResponseEntityExceptionHandler {
 
   // 400
-
-
   @Override
-  protected ResponseEntity<Object> handleHttpMessageNotReadable(final HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
+  protected ResponseEntity<Object> handleHttpMessageNotReadable(
+      final HttpMessageNotReadableException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
     return handleExceptionInternal(ex, message(HttpStatus.BAD_REQUEST, ex), headers, HttpStatus.BAD_REQUEST, request);
   }
 
   // 404
   @ExceptionHandler({EntityNotFoundException.class})
-  protected ResponseEntity<Object> handleEntityNotFoundException(final EntityNotFoundException ex, final WebRequest request) {
-    ex.printStackTrace();
+  protected ResponseEntity<Object> handleEntityNotFoundException(
+      final EntityNotFoundException ex, final WebRequest request) {
     return handleExceptionInternal(ex, message(HttpStatus.NOT_FOUND, ex), new HttpHeaders(), HttpStatus.NOT_FOUND, request);
   }
 

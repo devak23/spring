@@ -35,14 +35,15 @@ public class AppInitializer  implements ApplicationListener<ApplicationReadyEven
 //        .setAuthor(author);
 //
 //    postService.createPost(post);
-    loadAuthors("/data/authors.json");
-    loadPosts("/data/posts.json");
+    loadAuthors();
+    loadPosts();
   }
 
-  private void loadPosts(String jsonFile) {
+  private void loadPosts() {
+    System.out.println("Loading Posts...");
     ObjectMapper mapper = new ObjectMapper();
     TypeReference<List<Post>> typeRef = new TypeReference<List<Post>>() {};
-    InputStream in = TypeReference.class.getClass().getResourceAsStream(jsonFile);
+    InputStream in = TypeReference.class.getClass().getResourceAsStream("/data/posts.json");
     try {
       List<Post> posts = mapper.readValue(in, typeRef);
       postService.saveAll(posts);
@@ -51,10 +52,11 @@ public class AppInitializer  implements ApplicationListener<ApplicationReadyEven
     }
   }
 
-  private void loadAuthors(String jsonFile) {
+  private void loadAuthors() {
+    System.out.println("Loading Authors...");
     ObjectMapper mapper = new ObjectMapper();
     TypeReference<List<Author>> typeRef = new TypeReference<List<Author>>() {};
-    InputStream in = TypeReference.class.getClass().getResourceAsStream(jsonFile);
+    InputStream in = TypeReference.class.getClass().getResourceAsStream("/data/authors.json");
     try {
       List<Author> authors = mapper.readValue(in, typeRef);
       authorService.saveAll(authors);

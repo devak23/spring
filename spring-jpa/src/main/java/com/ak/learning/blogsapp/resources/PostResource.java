@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(PostResource.POSTS_BASE_URI)
 public class PostResource {
-  public static final String POSTS_BASE_URI = "/blogsapp/api/v1/posts";
+  public static final String POSTS_BASE_URI = "/api/v1/posts";
   private IPostService postService;
 
   @Autowired

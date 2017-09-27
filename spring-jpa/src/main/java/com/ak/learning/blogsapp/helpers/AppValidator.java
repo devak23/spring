@@ -2,7 +2,7 @@ package com.ak.learning.blogsapp.helpers;
 
 import com.ak.learning.blogsapp.exceptions.DuplicateEntityException;
 import com.ak.learning.blogsapp.exceptions.EntityNotFoundException;
-import com.ak.learning.blogsapp.exceptions.NonEqualEntityException;
+import com.ak.learning.blogsapp.exceptions.UnequalEntityException;
 
 import java.util.List;
 
@@ -15,7 +15,7 @@ public final class AppValidator {
 
   public static boolean checkEntityExists(Long sourceId, Long targetId) {
     if (!sourceId.equals(targetId)) {
-      throw new NonEqualEntityException("The primary key of the two entities dont match");
+      throw new UnequalEntityException("The primary key of the two entities dont match");
     }
     return true;
   }
@@ -34,5 +34,15 @@ public final class AppValidator {
     if (entity == null) {
       throw new EntityNotFoundException(message);
     }
+  }
+
+  public static <T> void checkCollectionExists(Iterable<T> entities, String message) {
+    if (entities == null || !entities.iterator().hasNext()) {
+      throw new EntityNotFoundException(message);
+    }
+  }
+
+  public static <T> void checkCollectionExists(Iterable<T> entities) {
+    checkCollectionExists(entities, "Entities were not found in the database");
   }
 }
