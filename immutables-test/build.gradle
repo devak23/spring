@@ -1,6 +1,12 @@
+buildscript {
+	ext {
+		immutableVersion = "2.8.8"
+	}
+}
+
 plugins {
-	id 'org.springframework.boot' version '2.5.2'
-	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id 'org.springframework.boot' version "2.5.2"
+	id 'io.spring.dependency-management' version "1.0.11.RELEASE"
 	id 'java'
 }
 
@@ -19,11 +25,8 @@ repositories {
 }
 
 dependencies {
-	def immutableVersion = "2.8.8"
 	annotationProcessor 'org.projectlombok:lombok'
 	annotationProcessor "org.immutables:value:$immutableVersion"
-
-	//compileOnly fileTree(dir: 'libs', include: ['*.jar'])
 
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	compileOnly "org.immutables:value:$immutableVersion"
